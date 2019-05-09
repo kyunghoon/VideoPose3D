@@ -9,3 +9,8 @@ data/own2DFiles/*
 
 __pycache__/
 *.py[cod]
+
+
+data/h36m.zip
+data/data_2d_h36m_gt.npz
+out_3D_vp3d.npz

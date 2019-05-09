@@ -70,6 +70,9 @@ def parse_args():
     parser.add_argument('--viz-limit', type=int, default=-1, metavar='N', help='only render first N frames')
     parser.add_argument('--viz-downsample', type=int, default=1, metavar='N', help='downsample FPS by a factor N')
     parser.add_argument('--viz-size', type=int, default=5, metavar='N', help='image size')
+
+    parser.add_argument('--input', type=str, help='input npz filepath')
+    parser.add_argument('--output', type=str, help='output npz filepath')
     
     parser.set_defaults(bone_length_term=True)
     parser.set_defaults(data_augmentation=True)
@@ -83,6 +86,14 @@ def parse_args():
         
     if args.export_training_curves and args.no_eval:
         print('Invalid flags: --export-training-curves and --no-eval cannot be set at the same time')
+        exit()
+
+    if not args.input:
+        print('Invalid input path')
+        exit()
+
+    if not args.output:
+        print('Invalid output path')
         exit()
 
     return args
